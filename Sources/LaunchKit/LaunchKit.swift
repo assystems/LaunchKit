@@ -54,6 +54,7 @@ public struct LaunchKitImpl: LaunchKitProtocol {
         newVersion = Version(versionString: appVersion)
         let savedVersion = userDefaults.string(forKey: UserDefaultsKeys.version.value) ?? ""
         oldVersion = Version(versionString: savedVersion)
+        userDefaults.set(newVersion, forKey: UserDefaultsKeys.version.value)
     }
     
     public func showReviewRequestIfNeeded(skipLaunchCount: Int) {
